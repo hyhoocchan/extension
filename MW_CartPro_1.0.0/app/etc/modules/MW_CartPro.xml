@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MW_CartPro>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <MW_CartAjax/>
+                <MW_CartPopup/>
+                <MW_QuickView/>
+            </depends>
+        </MW_CartPro>
+    </modules>
+</config>

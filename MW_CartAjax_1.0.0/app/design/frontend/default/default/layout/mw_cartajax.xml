@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/cartajax/serializeObject.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/cartajax/cartajax.js</name>
+            </action>
+            <block type="core/template" name="mw.cartajax.init.js" template="mw/cartajax/setup.phtml"></block>
+        </reference>
+    </default>
+    <catalog_product_view>
+        <reference name="before_body_end">
+            <block type="core/template" name="mw.cartajax.before.end.js" template="mw/cartajax/before_end_js.phtml"/>
+        </reference>
+    </catalog_product_view>
+</layout>

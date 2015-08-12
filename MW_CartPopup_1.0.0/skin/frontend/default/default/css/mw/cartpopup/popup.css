@@ -1,0 +1,12 @@
+#cartpopup_wapper {
+    width: 400px;
+    max-height: 500px;
+    height: auto;
+    overflow: auto;
+    background: #ffffff;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding: 10px;
+    border: 1px solid;
+}

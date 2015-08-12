@@ -1,0 +1,24 @@
+<div id="wishlist_popup_wapper" class="wishlist-popup-wapper">
+    <a href="javascript:void(0)" onclick="MW.AdvancedWishist.closePopup()">Close</a>
+    <div class="messages-wapper"></div>
+    <div class="content">
+    </div>
+</div>
+<script type="text/javascript">
+    //<!--
+    MW.AdvancedWishist.addAfterAddToWishlistEvent(function(ob){
+//        console.log(ob);
+        var success = ob.CurrentResponse.success;
+        if(success){
+            jQuery(ob.elePopupWapper).find(".content").html(ob.CurrentResponse.html);
+            jQuery(ob.elePopupWapper).fadeIn("slow");
+        }
+    });
+
+    MW.AdvancedWishist.addBeforeAddToWishlistEvent(function(ob){
+        if(!ob.isLogin){
+            setLocation("<?php echo Mage::getUrl("customer/account/login"); ?>");
+        }
+    });
+    //-->
+</script>

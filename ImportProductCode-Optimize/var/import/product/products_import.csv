@@ -1,0 +1,6 @@
+sku,name,color,size,configurable_name,productgroup,price,image,brand,description,short_description,,category
+SKU1,SP1,Almond,SIZE 1,A,A,100,img_1.jpg,Brand 1,Description 1,Short Description 1,,Level1/Level2;Vip1
+SKU2,SP2,Blue,SIZE 2,A,A,200,img_2.jpg,Brand 2,Description 2,Short Description 2,,Level1/Level2;Vip1/Vip2
+SKU3,SP3,Butter,SIZE 3,B,B,300,img_3.jpg,Brand 3,Description 3,Short Description 3,,Level1/Level6/Level7;Vip3
+SKU4,SP4,Chestnut,SIZE 4,B,B,400,img_4.jpg,Brand 4,Description 4,Short Description 4,,Level1/Level6/Level7;Vip3
+SKU5,SP5,Hero,SIZE 5,B,B,500,img_5.jpg,Brand 5,Description 5,Short Description 5,,Level1/Level6/Level7;Vip3

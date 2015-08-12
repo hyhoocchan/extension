@@ -1,0 +1,3 @@
+sku,name,color,size,price,image,brand,description,short_description,category
+SKU1,SP Update 1,Almond Update,SIZE  Update 1,400,img_update_1.jpg,Brand Update 1,Description Update 1,Short Description 1,Level1/Level2;Vip22
+SKU2,SP Update 2,Blue Update,SIZE Update 2,500,img_update_2.jpg,Brand Update 2,Description Update 2,Short Description 2,Level1/Level2;Vip1/Vip2

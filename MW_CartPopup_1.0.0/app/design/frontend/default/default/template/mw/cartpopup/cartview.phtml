@@ -1,0 +1,17 @@
+<div class="cartpopup">
+    <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
+        <table id="shopping-cart-table" class="data-table cart-table">
+            <tbody>
+            <?php foreach($this->getItems() as $_item): ?>
+                <?php echo $this->getItemHtml($_item) ?>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+        <script type="text/javascript">decorateTable('shopping-cart-table')</script>
+    </form>
+    <div class="cart-collaterals">
+        <div class="totals">
+            <?php echo $this->getChildHtml('totals'); ?>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<?php
+$_product = $this->getProduct();
+?>
+<a class="quick-view-parent" href="javascript:void(0)" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+    <img class="quick-view" onclick="MW.QuickView.openQuickView(<?php echo $_product->getId() ?>)" src="<?php echo Mage::getBaseUrl("media")."/cartpro/config/".Mage::getStoreConfig("mw_cartpro/quickview/image") ?>" />
+</a>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MW_CartPro>
+            <version>1.0.0</version>
+        </MW_CartPro>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <cartpro>
+                    <file>mw_cartpro.xml</file>
+                </cartpro>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <models>
+            <cartpro>
+                <class>MW_CartPro_Model</class>
+            </cartpro>
+        </models>
+        <blocks>
+            <cartpro>
+                <class>MW_CartPro_Block</class>
+            </cartpro>
+        </blocks>
+        <helpers>
+            <cartpro>
+                <class>MW_CartPro_Helper</class>
+            </cartpro>
+        </helpers>
+    </global>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <MW_CartPro>
+                            <title>CartPro Module</title>
+                            <sort_order>10</sort_order>
+                        </MW_CartPro>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mw_cartpro>
+                                            <title>Whiz Module Section</title>
+                                        </mw_cartpro>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <menu>
+            <mwall module="cartpro" translate="title">
+                <title>Magento Whiz</title>
+                <sort_order>75</sort_order>
+                <children>
+                    <cartpro module="cartpro" translate="title">
+                        <title>Cart Pro</title>
+                        <sort_order>30</sort_order>
+                        <children>
+                            <configuration module="cartpro" translate="title">
+                                <title>Configuration</title>
+                                <sort_order>10</sort_order>
+                                <action>adminhtml/system_config/edit/section/mw_cartpro/</action>
+                            </configuration>
+                        </children>
+                    </cartpro>
+                </children>
+            </mwall>
+        </menu>
+    </adminhtml>
+    <default>
+        <mw_cartpro>
+            <cartajax>
+                <enable_show_popup>1</enable_show_popup>
+                <enable_show_message>1</enable_show_message>
+                <execute_javascript_success>
+<![CDATA[console.log(response);
+for(var i=0;i<response.messages.length;i++){
+    alert(response.messages[i]);
+}
+]]>
+                </execute_javascript_success>
+                <execute_javascript_fail>
+<![CDATA[console.log(response);
+for(var i=0;i<response.messages.length;i++){
+    alert(response.messages[i]);
+}
+]]>
+                </execute_javascript_fail>
+            </cartajax>
+            <quickview>
+                <enable_on_catalog>1</enable_on_catalog>
+                <image>default/default.jpg</image>
+            </quickview>
+        </mw_cartpro>
+    </default>
+</config>

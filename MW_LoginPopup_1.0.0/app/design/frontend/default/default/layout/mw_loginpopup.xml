@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/loginpopup/serializeObject.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/loginpopup/loginpopup.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/loginpopup/signuppopup.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/mw/loginpopup/loginpopup.css</name>
+            </action>
+            <block type="core/template" name="loginpopup.setup" template="mw/loginpopup/setup.phtml"></block>
+        </reference>
+        <reference name="before_body_end">
+            <block type="customer/form_login" name="mw.loginpopup.form"
+                   template="mw/loginpopup/form_popup.phtml"></block>
+            <block type="customer/form_register" name="mw.loginpopup.signup"
+                   template="mw/loginpopup/form_signup.phtml"></block>
+            <block type="core/template" name="mw.loginpopup.afer.setup"
+                   template="mw/loginpopup/after-document-ready-setup.phtml"></block>
+        </reference>
+    </default>
+</layout>

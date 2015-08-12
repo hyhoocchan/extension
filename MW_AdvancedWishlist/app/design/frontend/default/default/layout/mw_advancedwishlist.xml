@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/mw/advancedwishlist/advancedwishlist.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/advancedwishlist/advancedwishlist.js</name>
+            </action>
+            <block type="core/template" name="mw.advancedwishlist.setup.js"
+                   template="mw/advancedwishlist/setup.phtml"></block>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" name="advancedwishlist.wapper"
+                   template="mw/advancedwishlist/wapper.phtml"></block>
+        </reference>
+    </default>     
+</layout>

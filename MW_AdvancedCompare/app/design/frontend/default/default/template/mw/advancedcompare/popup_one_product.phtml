@@ -1,0 +1,18 @@
+<?php
+$_helper = $this->helper('catalog/product_compare');
+$_product = $this->getProduct();
+?>
+<div class="block block-list block-compare">
+    <div class="block-content">
+        <ul>
+            <li class="item">
+                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(265) ?>">
+                <p class="product-name"><?php echo $_product->getName(); ?></p>
+            </li>
+        </ul>
+    </div>
+    <div class="actions">
+        <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" onclick="MW.AdvancedCompare.closePopup()" class="button"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+        <button type="button" title="<?php echo $this->__('Go to Compare') ?>" class="button" onclick="popWin('<?php echo $_helper->getListUrl() ?>','compare','top:0,left:0,width=820,height=600,resizable=yes,scrollbars=yes')"><span><span><?php echo $this->__('Go to Compare') ?></span></span></button>
+    </div>
+</div>

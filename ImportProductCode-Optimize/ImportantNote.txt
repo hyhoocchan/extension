@@ -1,0 +1,2 @@
+Must create configurable attribute first
+Add all this attrinbute in to default set if declare is default

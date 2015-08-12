@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/mw/advancedcompare/comparepopup.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/advancedcompare/advancedcompare.js</name>
+            </action>
+            <block type="core/template" name="mw.advancedcompare.setup.js"
+                   template="mw/advancedcompare/setup.phtml"></block>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" name="advancedcompare.wapper"
+                   template="mw/advancedcompare/wapper.phtml"></block>
+        </reference>
+    </default>
+    <advancedcompare_compare_popup>
+        <reference name="content">
+            <block type="advancedcompare/sidebar" name="advancedcompare.popup"
+                   template="mw/advancedcompare/popup.phtml"></block>
+        </reference>
+    </advancedcompare_compare_popup>
+</layout>

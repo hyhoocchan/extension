@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Importpro_Catalog>
+            <version>0.1</version>
+        </Importpro_Catalog>
+    </modules>
+    <global>
+        <models>
+            <catalog>
+                <rewrite>
+                    <product_type_configurable>Importpro_Catalog_Model_Product_Type_Configurable</product_type_configurable>
+                </rewrite>
+            </catalog>
+        </models>
+    </global>
+</config>

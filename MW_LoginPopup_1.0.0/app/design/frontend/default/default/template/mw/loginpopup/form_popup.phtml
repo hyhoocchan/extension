@@ -1,0 +1,132 @@
+<div id="login-form-box" class="login-form shown-popup">	
+    <div class="account-login-popup">
+		<div class="shown-popup-top">&nbsp;</div>
+		<div class="shown-popup-content">
+		<a href="javascript:void(0)" class="close-popup" onclick="MW.LoginPopup.closeLoginPopup()">Close</a>
+		<div class="shown-scroll">
+        <div class="page-title">
+            <h1><?php echo $this->__('Login') ?><label><?php echo $this->__('& Get Access to all the great features') ?></label></h1>            
+        </div>
+        <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+        <div id="login-form-message" style="display: none"></div>		
+		<p class="note"><?php echo $this->__('This login is different than your BlackandDecker.com Login. if this is your first time to the Black & Decker Laminator website than you will need to Register by clicking below and create a User ID and Password.');?></p>
+		<a href="javascript:void(0)" onclick="signupRegisteredPopup()"
+               class="f-left links-other"><?php echo $this->__('Not Registered? Click here') ?></a>
+        <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="mw-login-form-box">
+            <ul class="form-list-popup">
+                <li class="<?php if($this->getUsername()):?>hiddenlabel<?php endif;?>">
+                    <label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+                    <div class="input-box">
+                        <input onclick="clickHidden(this)" onfocus="clickHidden(this)" onblur="hiddenLabel(this)" type="text" name="login[username]"
+                               value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email loginpopup-element" title="<?php echo $this->__('Email Address') ?>"/>
+                    </div>
+                </li>
+                <li class="<?php if($this->getUsername()):?>hiddenlabel<?php endif;?>">
+                    <label for="pass" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+
+                    <div class="input-box">
+                        <input onclick="clickHidden(this)" onfocus="clickHidden(this)" onblur="hiddenLabel(this)" type="password" name="login[password]" class="input-text required-entry validate-password loginpopup-element" id="pass" title="<?php echo $this->__('Password') ?>"/>
+                    </div>
+                </li>
+                <?php echo $this->getChildHtml('form.additional.info'); ?>
+                <?php echo $this->getChildHtml('persistent.remember.me'); ?>
+            </ul>
+            <?php echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
+			<div class="buttons-action">
+				<p class="required"><?php echo $this->__('* Required Fields') ?></p>                      
+				<button type="button" onclick="loginPopupDataForm.submit()" class="button" title="<?php echo $this->__('Login') ?>" name="send" id="send2">
+					<span><span><?php echo $this->__('Login') ?></span></span></button>
+                <div id="loading-ajax-symbol" style="float: left; display: none; margin: 5px 5px 0px 0px;display: none"><img src="<?php echo $this->getSkinUrl("images/mw/loginpopup/ico-loading.gif") ?>"></div>
+				<a href="<?php echo $this->getForgotPasswordUrl() ?>"
+				   class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>  
+			</div>			   
+        </form>
+		</div>
+		</div>
+		<div class="shown-popup-bottom">&nbsp;</div>
+    </div>
+</div>
+<div id="bModal_canvas" style="display: none;background-color: rgb(0, 0, 0); height: 100%; left: 0px; opacity: 0.6; position: fixed; top: 0px; width: 100%; z-index: 9998; cursor: pointer;" onclick="MW.LoginPopup.closeLoginPopup()"></div>
+<script type="text/javascript">
+    //<![CDATA[
+    function signupRegisteredPopup(){
+        MW.LoginPopup.closeLoginPopup(function(){
+            MW.SignUpPopup.openSignUpPopup();
+        });
+    }
+
+    jQuery(".loginpopup-element").keypress(function(event){
+        if ( event.which == 13 ) {
+            loginPopupDataForm.submit();
+        }
+    });
+
+	function hiddenLabel(e){
+			//if(jQuery('.form-list-popup .input-box input.input-text').length){
+			if(jQuery(e).val()=="" || jQuery(e).val()==null){
+				if(jQuery(e).parent().parent().hasClass('hiddenlabel')){
+					jQuery(e).parent().parent().removeClass('hiddenlabel');
+					if(jQuery(e).attr('id')=="email" && jQuery(e).val()){
+						jQuery("#pass").addClass('hiddenlabel');
+					}
+				}
+			}
+		//}
+	}
+	function clickHidden(e){
+		jQuery(e).parent().parent().addClass('hiddenlabel');
+	}
+
+    var loginPopupDataForm = new VarienForm('mw-login-form-box', true);
+    loginPopupDataForm.submit = function(){
+        if (this.validator.validate()) {
+            var form = this.form;
+            try {
+                var requestData = jQuery("#mw-login-form-box").serializeObject();
+                MW.LoginPopup.loginPostAjax(requestData.login);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    }
+
+    MW.LoginPopup.addBeforePopupEvent(function(ob){
+        if(!ob.isLogin){
+            jQuery("#bModal_canvas").show();
+        }
+        jQuery(ob.messageElement).html("");
+
+        //----- set popup to center ---------------------
+        var pw_w=jQuery(window).width()-jQuery(ob.loginElement).width();
+        var pw_h=jQuery(window).height()-jQuery(ob.loginElement).height();
+        jQuery(ob.loginElement).css({
+            left: pw_w/2,
+            top:pw_h/2
+        });
+    })
+
+    MW.LoginPopup.addClosePopupEvent(function(){
+        jQuery("#bModal_canvas").hide();
+    })
+
+    MW.LoginPopup.addBeforePostEvent(function(){
+        jQuery("#loading-ajax-symbol").show();
+    });
+
+    MW.LoginPopup.addAfterPostEvent(function(res){
+        if(!res.isLogin){
+            var mes = res.response.messages ;
+            jQuery(res.messageElement).html("");
+            for(var i=0;i<mes.length;i++ ){
+                jQuery(res.messageElement).append("<p>"+mes[i]+"</p>");
+            }
+            jQuery(res.messageElement).show();
+        }else{
+            jQuery(res.messageElement).hide();
+        }
+
+        //-----------------
+        jQuery("#loading-ajax-symbol").fadeOut("slow");
+    });
+    //]]>
+</script>

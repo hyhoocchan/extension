@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    //<!--
+    try{
+        productAddToCartForm.submitAjax = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+                if (url) {
+                    form.action = url;
+                }
+                var e = null;
+                try {
+                    MW.CartAjax.addToCartFromPDP(form);
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+            }
+        }.bind(productAddToCartForm);
+    }catch(e){
+    //    console.log(e);
+    }
+
+    //-->
+</script>

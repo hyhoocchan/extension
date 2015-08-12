@@ -1,0 +1,17 @@
+<?php
+$_product = $this->getProduct();
+?>
+<div class="block block-list block-compare">
+    <div class="block-content">
+        <ul>
+            <li class="item">
+                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(265) ?>">
+                <p class="product-name"><?php echo $_product->getName(); ?></p>
+            </li>
+        </ul>
+    </div>
+    <div class="actions">
+        <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" onclick="MW.AdvancedWishist.closePopup()" class="button"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+        <button type="button" title="<?php echo $this->__('Go to Wishlist') ?>" onclick="setLocation('<?php echo Mage::getUrl("wishlist") ?>')" class="button"><span><span><?php echo $this->__('Go to Wishlist') ?></span></span></button>
+    </div>
+</div>

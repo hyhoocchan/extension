@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MW_QuickView>
+            <version>1.0.0</version>
+        </MW_QuickView>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <quickview>
+                    <file>mw_quickview.xml</file>
+                </quickview>
+            </updates>
+        </layout>
+
+        <routers>
+            <quickview>
+                <use>standard</use>
+                <args>
+                    <module>MW_QuickView</module>
+                    <frontName>quickview</frontName>
+                </args>
+            </quickview>
+        </routers>
+    </frontend>
+    <global>
+        <models>
+            <quickview>
+                <class>MW_QuickView_Model</class>
+            </quickview>
+        </models>
+        <blocks>
+            <quickview>
+                <class>MW_QuickView_Block</class>
+            </quickview>
+        </blocks>
+        <helpers>
+            <quickview>
+                <class>MW_QuickView_Helper</class>
+            </quickview>
+        </helpers>
+    </global>
+</config>

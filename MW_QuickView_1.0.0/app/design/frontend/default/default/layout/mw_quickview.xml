@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/quickview/quickview.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/quickview/jquery.iframe.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/mw/quickview/popup.css</name>
+            </action>
+
+            <block type="core/template" name="mw.quickview.setup.js" template="mw/quickview/setup.phtml"></block>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" name="mw.quickview.wapper" template="mw/quickview/wapper.phtml"></block>
+            <block type="core/template" name="mw.productoption.wapper"
+                   template="mw/quickview/product-option-wapper.phtml"></block>
+        </reference>
+    </default>
+
+    <quickview_popup_view>
+        <update handle="catalog_product_view"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>mw/quickview/popup.phtml</template>
+            </action>
+        </reference>
+        <reference name="product.info">
+            <action method="setTemplate">
+                <template>mw/quickview/product/view.phtml</template>
+            </action>
+        </reference>
+    </quickview_popup_view>
+
+
+    <quickview_popup_productoption>
+        <update handle="catalog_product_view"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>mw/quickview/popup.phtml</template>
+            </action>
+        </reference>
+        <reference name="product.info">
+            <action method="setTemplate">
+                <template>mw/quickview/product/product-option.phtml</template>
+            </action>
+        </reference>
+    </quickview_popup_productoption>
+
+    <catalog_category_default>
+        <reference name="head">
+            <block type="core/template" name="catalog.category.setup"
+                   template="mw/quickview/category/category-init.phtml"></block>
+        </reference>
+    </catalog_category_default>
+    <catalog_category_view>
+        <reference name="head">
+            <block type="core/template" name="catalog.category.setup"
+                   template="mw/quickview/category/category-init.phtml"></block>
+        </reference>
+    </catalog_category_view>
+
+</layout>

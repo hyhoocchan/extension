@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/cartpopup/serializeObject.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/cartpopup/cartpopup.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/mw/cartpopup/popup.css</name>
+            </action>
+            <block type="core/template" name="mw.cartpopup.setup.js" template="mw/cartpopup/setup.phtml"></block>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" name="mw.cartpopup.popup.wapper"
+                   template="mw/cartpopup/popup_wapper.phtml"></block>
+        </reference>
+    </default>
+</layout>

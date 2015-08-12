@@ -1,0 +1,47 @@
+<div id="compare_popup_wapper" class="compare-popup-wapper">
+    <a href="javascript:void(0)" onclick="MW.AdvancedCompare.closePopup()">Close</a>
+    <div class="messages-wapper"></div>
+    <div class="content">
+    </div>
+</div>
+<script type="text/javascript">
+    //<!--
+    MW.AdvancedCompare.addBeforeAddToCompareEvent(function(ob){
+        var key = ob.CurrentRequest.product;
+        jQuery("#compare-load-"+key).show();
+    });
+    MW.AdvancedCompare.addAfterAddToCompareEvent(function(ob){
+        var success = ob.CurrentResponse.success;
+        var key = ob.CurrentRequest.product;
+        var mes = ob.CurrentResponse.messages;
+        try{
+            mes = mes.pop();
+        }catch (e){
+            mes = "";
+        }
+
+
+        jQuery.get(
+            '<?php echo Mage::getUrl("advancedcompare/compare/reloadCompareRelatedArea") ?>',
+                {
+                    preCurrentUrl:MW.AdvancedCompare.currentUrl
+                },
+            function(res){
+                showCompareMessage(mes);
+                jQuery("#block-left-compare-dev").replaceWith(res.left_block);
+                jQuery("#block-left-compare-dev").fadeIn("slow");
+                jQuery("#compare-load-"+key).hide();
+            },'json'
+        );
+
+    });
+
+    function showCompareMessage(message){
+        var tmp = ".main .col-main .page-title";
+        var ele = jQuery(tmp).next();
+        if(ele.hasClass("messages"))  ele.remove();
+        var tmpString = "<ul class=\"messages\"><li class=\"success-msg\"><ul><li><span>"+message+"</span></li></ul></li></ul>";
+        jQuery(tmp).after(tmpString);
+    }
+    //-->
+</script>

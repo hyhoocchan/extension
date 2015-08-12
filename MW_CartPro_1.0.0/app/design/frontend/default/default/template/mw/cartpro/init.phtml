@@ -1,0 +1,59 @@
+<script type="text/javascript">
+    //<!--
+    //Update Qty Item on menu
+    MW.CartAjax.addAfterSentEvent(function (response) {
+        var cartQty = response.cart_total_qty;
+        try {
+            if (cartQty <= 0) {
+                jQuery(".links a.top-link-cart").html("My Cart");
+            }
+            else if (cartQty == 1) {
+                jQuery(".links a.top-link-cart").html("My Cart(1 item)");
+                jQuery(".summary .amount a").html("1 item");
+            }
+            else {
+                jQuery(".links a.top-link-cart").html("My Cart(" + cartQty + " items)");
+                jQuery(".summary .amount a").html(cartQty + " items");
+            }
+
+        } catch (e) {
+            console.log(e);
+        }
+    });
+    MW.CartAjax.addBeforeSentEvent(function (ob) {
+        jQuery("#cartajax-loading-" + ob.product).show();
+    })
+
+    <?php if (Mage::getStoreConfigFlag("mw_cartpro/cartajax/enable_show_popup")): ?>
+    MW.CartAjax.addAfterSentEvent(function (response) {
+        var productId = response.product.entity_id;
+        MW.CartPopup.showCartPopup(null, null, function () {
+            jQuery("#cartajax-loading-" + productId).hide();
+        });
+    });
+        <?php endif; ?>
+    <?php if (Mage::getStoreConfigFlag("mw_cartpro/cartajax/enable_show_message")): ?>
+    MW.CartAjax.addAfterSentEvent(function (response) {
+        var productId = response.product.entity_id;
+        jQuery("#cartajax-loading-" + productId).hide();
+        if (response.success) {
+            try {
+                <?php echo Mage::getStoreConfig("mw_cartpro/cartajax/execute_javascript_success"); ?>
+            } catch (e) {
+                console.log(e);
+            }
+        } else {
+            try {
+                <?php echo Mage::getStoreConfig("mw_cartpro/cartajax/execute_javascript_fail"); ?>
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    });
+        <?php endif; ?>
+
+    //----------------------------------------------------
+
+    //-->
+</script>
+

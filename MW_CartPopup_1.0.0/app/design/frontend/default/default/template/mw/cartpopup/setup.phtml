@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    //<!--
+    MW.CartPopup.ajaxRequestKey = "<?php echo MW_CartPopup_Model_Response::AJAX_REQUEST_KEY ?>";
+    MW.CartPopup.cartPopupUrl = "<?php echo Mage::getUrl("checkout/cart/index") ?>";
+    MW.CartPopup.elePopupWapper = "#cartpopup_wapper";
+    MW.CartPopup.contentContainer = ".content";
+    //Caculator popup position ---------------------------
+    MW.CartPopup.addBeforeShowEvent(function(object){
+        jQuery(object.elePopupWapper).css("top",jQuery("li .top-link-cart").position().top+20);
+        jQuery(object.elePopupWapper).css("left",jQuery("li .top-link-cart").position().left);
+    });
+    //-->
+</script>

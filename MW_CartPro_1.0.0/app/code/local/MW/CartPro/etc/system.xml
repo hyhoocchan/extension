@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <mwall translate="label" module="cartpro">
+            <label>Magento Whiz</label>
+            <sort_order>250</sort_order>
+        </mwall>
+    </tabs>
+    <sections>
+        <mw_cartpro translate="label" module="cartpro">
+            <label>Cart Pro</label>
+            <tab>mwall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <cartajax translate="label">
+                    <label>Cart Ajax Config</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable_show_popup translate="label">
+                            <label>Enable Show Popup</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_show_popup>
+
+                        <enable_show_message translate="label">
+                            <label>Enable Show Message</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_show_message>
+
+                        <execute_javascript_success translate="label">
+                            <label>Execute JS Success:</label>
+                            <frontend_type>textarea</frontend_type>
+                            <comment><![CDATA[
+                             Execute javascript process after add to cart SUCCESS.<br/>
+                             <strong>response</strong> parama is response on server]]></comment>
+                            <sort_order>30</sort_order>
+                            <depends>
+                                <enable_show_message>1</enable_show_message>
+                            </depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </execute_javascript_success>
+
+                        <execute_javascript_fail translate="label">
+                            <label>Execute JS Fail:</label>
+                            <frontend_type>textarea</frontend_type>
+                            <comment><![CDATA[<strong>Note:</strong>
+                             Execute javascript process after add to cart FAIL..<br/>
+                             <strong>response</strong> parama is response on server]]></comment>
+                            <sort_order>40</sort_order>
+                            <depends>
+                                <enable_show_message>1</enable_show_message>
+                            </depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </execute_javascript_fail>
+                    </fields>
+                </cartajax>
+                <quickview translate="label">
+                    <label>Quick View Config</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable_on_catalog translate="label">
+                            <label>Enable Show Quick View on Catalog</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_on_catalog>
+                        <image>
+                            <label>Quick View Image</label>
+                            <comment>Allowed file types: jpeg, gif, png.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">cartpro/config</upload_dir>
+                            <base_url type="media" scope_info="0">cartpro/config</base_url>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </image>
+                    </fields>
+                </quickview>
+            </groups>
+        </mw_cartpro>
+    </sections>
+</config>

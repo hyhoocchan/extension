@@ -1,0 +1,13 @@
+.quick-view-parent{
+    position:relative !important;
+}
+.quick-view-parent .quick-view{
+    display: none ;
+    position: absolute;
+    top:55px;
+    left: 21px;
+    width:90px;
+}
+.quick-view-parent:hover .quick-view{
+    display: block ;
+}

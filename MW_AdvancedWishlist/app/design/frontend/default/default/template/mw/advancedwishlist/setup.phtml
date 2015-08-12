@@ -1,0 +1,8 @@
+<script type="text/javascript">
+    //<!--
+    MW.AdvancedWishist.isLogin = <?php echo Mage::getModel("customer/session")->isLoggedIn() ? "true" : "false" ?>;
+    MW.AdvancedWishist.currentUrl = "<?php echo Mage::helper("core/url")->getCurrentUrl()?>";
+    MW.AdvancedWishist.elePopupWapper = "#wishlist_popup_wapper";
+    MW.AdvancedWishist.addToWishlistUrl = "<?php echo Mage::getUrl("wishlist/index/add"); ?>";
+    //-->
+</script>

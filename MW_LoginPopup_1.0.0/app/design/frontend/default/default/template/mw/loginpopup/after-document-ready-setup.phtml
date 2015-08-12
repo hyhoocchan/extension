@@ -1,0 +1,12 @@
+<script type="text/javascript">
+    //<!--
+    MW.LoginPopup.addAfterPostEvent(function(res){
+        if(res.isLogin){
+            jQuery.get("<?php echo Mage::getUrl("custom/loadajax/customlinksBlock"); ?>",function(response){
+                jQuery("#link-customer-id").replaceWith(response);
+                res.closeLoginPopup();
+            })
+        }
+    });
+    //-->
+</script>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addJs">
+                <script>jquery/jquery-1.8.3.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>jquery/jquery-noconflict.js</script>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/mw/cartpro/cartpro.css</name>
+            </action>
+            <block type="core/template" name="cartpro.init" template="mw/cartpro/init.phtml"></block>
+        </reference>
+    </default>
+    <catalog_category_default>
+        <reference name="product_list">
+            <action method="setTemplate">
+                <template>mw/cartpro/catalog/product/list.phtml</template>
+            </action>
+            <block type="core/template" name="cartpro.addtocart" as="cartpro_addtocart"
+                   template="mw/cartpro/catalog/product/list/addtocart.phtml"></block>
+            <block type="catalog/product_list" name="cartpro.productlist.image" as="cartpro_productlist_image"
+                   template="mw/cartpro/catalog/product/list/image.phtml"></block>
+        </reference>
+    </catalog_category_default>
+    <catalog_category_layered>
+
+    </catalog_category_layered>
+</layout>

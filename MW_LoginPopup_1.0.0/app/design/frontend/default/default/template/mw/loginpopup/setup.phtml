@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    //<!--
+    MW.LoginPopup.loginElement = "#login-form-box";
+    MW.LoginPopup.messageElement ="#login-form-box #login-form-message";
+
+    MW.LoginPopup.loginPostUrl = "<?php echo Mage::helper('customer')->getLoginPostUrl(); ?>";
+    MW.LoginPopup.isLogin = <?php echo Mage::getModel("customer/session")->isLoggedIn() ? "true" : "false" ?>;
+
+    //-------------------------------------------
+
+    MW.SignUpPopup.signUpElement = "#form-validate-signup-wapper";
+    //-->
+</script>

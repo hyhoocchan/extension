@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/configurableoptionthumbnail/jquery.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/mw/configurableoptionthumbnail/jquery.noconflict.js</name>
+            </action> 
+        </reference>
+    </default>
+    <catalog_product_view>
+        <reference name="product.info.media">
+            <action method="setTemplate">
+                <value>mw/configurableoptionthumbnail/catalog/product/view/media.phtml</value>
+            </action>  
+            <block type="configurableoptionthumbnail/configurableoptionthumbnail" name="product.info.media.configurableoptionthumbnail" as="configurableoptionthumbnail" template="mw/configurableoptionthumbnail/configurableoptionthumbnail.phtml" />
+        </reference>    
+    </catalog_product_view>
+</layout> 

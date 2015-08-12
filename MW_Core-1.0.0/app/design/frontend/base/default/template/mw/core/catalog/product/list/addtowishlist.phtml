@@ -1,0 +1,12 @@
+<?php
+/**
+* @category   MW
+* @package    MW_Core
+* @version    1.0.0
+* @copyright  Copyright (c) 2012 Magento Whiz. (http://www.magentowhiz.com)
+*/
+?>
+<?php $_product = $this->getProduct();?>
+<?php if ($this->helper('wishlist')->isAllow()) : ?>
+    <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+<?php endif; ?>

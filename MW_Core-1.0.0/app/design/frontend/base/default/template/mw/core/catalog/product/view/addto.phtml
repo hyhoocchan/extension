@@ -1,0 +1,15 @@
+<?php
+/**
+* @category   MW
+* @package    MW_Core
+* @version    1.0.0
+* @copyright  Copyright (c) 2012 Magento Whiz. (http://www.magentowhiz.com)
+*/
+?>
+
+<?php $_product = $this->getProduct(); ?>
+<ul class="add-to-links">
+<?php echo $this->getChild('product_info_addto_wishlist')->setProduct($_product)->toHtml(); ?>
+    
+<?php echo $this->getChild('product_info_addto_compare')->setProduct($_product)->toHtml(); ?>
+</ul>

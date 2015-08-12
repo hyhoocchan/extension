@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MW_Core>
+            <version>1.0.0</version>
+        </MW_Core>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <mw_core>
+                    <file>mw_core.xml</file>
+                </mw_core>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <helpers>
+            <mw_core>
+                <class>MW_Core_Helper</class>
+            </mw_core>
+        </helpers>
+    </global>
+</config>

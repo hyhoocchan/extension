@@ -1,0 +1,56 @@
+<?php
+/**
+* @category   MW
+* @package    MW_ConfigurableOptionThumbnail
+* @version    1.0.0
+* @copyright  Copyright (c) 2012 Magento Whiz. (http://www.magentowhiz.com)
+*/
+?>
+<?php
+$thumnails = $this->getThumbnailGalleryData();
+?>
+<?php if (count($thumnails)): ?>
+    <ul>
+        <?php foreach ($thumnails as $key => $item): ?>
+            <li style="float: left;margin: 0 0 8px 9px;">                
+                <a rel="<?php echo $key ?>" class="thumnails_click" href="javascript:void(0)">
+                    <img alt="" src="<?php echo $this->helper('catalog/image')->init(Mage::getModel('catalog/product')->load($key), 'image')->resize(56, 56); ?>"/>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <div style="clear: both"></div>
+    <script type="text/javascript">
+        //<![CDATA[
+        Element.prototype.triggerEvent = function(eventName)
+        {
+            if (document.createEvent)
+            {
+                var evt = document.createEvent('HTMLEvents');
+                evt.initEvent(eventName, true, true);
+
+                return this.dispatchEvent(evt);
+            }
+
+            if (this.fireEvent)
+                return this.fireEvent('on' + eventName);
+        };
+        var jSonThumnailData = <?php echo $this->getThumbnailGalleryJsonData() ?>;                
+        jQuery(".thumnails_click").click(function(){            
+            var key = jQuery(this).attr('rel');
+            var data = jSonThumnailData[key]['of_option'];
+            var imgUrl = jSonThumnailData[key]['image_url'];
+            jQuery("#image").attr('src',imgUrl);
+            var i=1;            
+            for(var k in data){                                  
+                setTimeout("trigger_hander_change_event("+k+","+data[k]+")",i++*100);    
+            }
+        });
+            
+        function trigger_hander_change_event(k,value){
+            jQuery("#attribute"+k).val(value);
+            $("attribute"+k).triggerEvent('change');      
+        }
+        //]]>
+    </script>
+<?php endif; ?>

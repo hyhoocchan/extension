@@ -1,0 +1,13 @@
+<?php
+/**
+* @category   MW
+* @package    MW_Core
+* @version    1.0.0
+* @copyright  Copyright (c) 2012 Magento Whiz. (http://www.magentowhiz.com)
+*/
+?>
+<?php $_product = $this->getProduct(); ?>
+<?php $_wishlistSubmitUrl = $this->helper('wishlist')->getAddUrl($_product); ?>
+<?php if ($this->helper('wishlist')->isAllow()) : ?>
+    <li><a href="<?php echo $_wishlistSubmitUrl ?>" onclick="productAddToCartForm.submitLight(this, this.href); return false;" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+<?php endif; ?>

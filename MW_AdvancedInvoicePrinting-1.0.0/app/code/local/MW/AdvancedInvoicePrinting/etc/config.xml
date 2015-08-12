@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MW_AdvancedInvoicePrinting>
+            <version>1.0.0</version>
+        </MW_AdvancedInvoicePrinting>
+    </modules>   
+    <admin>
+        <routers>
+            <advancedinvoiceprinting>
+                <use>admin</use>
+                <args>
+                    <module>MW_AdvancedInvoicePrinting</module>
+                    <frontName>advancedinvoiceprinting</frontName>
+                </args>
+            </advancedinvoiceprinting>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <mwall module="advancedinvoiceprinting" translate="title">
+                <title>Magento Whiz</title>
+                <sort_order>75</sort_order>
+                <children>
+                    <advancedinvoiceprinting module="advancedinvoiceprinting" translate="title">
+                        <title>Advanced Invoice Printing</title>
+                        <sort_order>30</sort_order>                        
+                        <children>
+                            <configuration module="advancedinvoiceprinting" translate="title">
+                                <title>Configuration</title>
+                                <sort_order>10</sort_order>
+                                <action>adminhtml/system_config/edit/section/advancedinvoiceprinting_options/</action>
+                            </configuration>
+                        </children>
+                    </advancedinvoiceprinting>
+                </children>
+            </mwall>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <MW_AdvancedInvoicePrinting>
+                            <title>AdvancedInvoicePrinting Module</title>
+                            <sort_order>10</sort_order>
+                        </MW_AdvancedInvoicePrinting>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>                                        
+                                        <advancedinvoiceprinting_options>
+                                            <title>Advanced Invoice Printing</title>
+                                        </advancedinvoiceprinting_options>                                                   
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <advancedinvoiceprinting>
+                    <file>advancedinvoiceprinting.xml</file>
+                </advancedinvoiceprinting>
+            </updates>
+        </layout>
+    </adminhtml>   
+    <global>
+        <models>       
+            <sales>
+                <rewrite>
+                    <order_pdf_invoice>MW_AdvancedInvoicePrinting_Model_Order_Pdf_Invoice</order_pdf_invoice>
+                </rewrite>
+            </sales>
+            <advancedinvoiceprinting>
+                <class>MW_AdvancedInvoicePrinting_Model</class>
+            </advancedinvoiceprinting>
+        </models>           
+        <helpers>
+            <advancedinvoiceprinting>
+                <class>MW_AdvancedInvoicePrinting_Helper</class>
+            </advancedinvoiceprinting>
+        </helpers>
+    </global>
+    <default>
+        <advancedinvoiceprinting_options>
+            <general>
+                <opacity>15</opacity>
+                <offset_x>0</offset_x>
+                <offset_y>0</offset_y>
+                <rotate_right>60</rotate_right>           
+                <enable>1</enable>
+                <images_size>100</images_size>
+                <logo_size>100</logo_size>
+            </general>   
+            <pages>
+                <enable>1</enable>
+                <alignment>CENTER</alignment>
+                <position>BOTTOM</position>
+            </pages>
+        </advancedinvoiceprinting_options>
+    </default>
+</config>

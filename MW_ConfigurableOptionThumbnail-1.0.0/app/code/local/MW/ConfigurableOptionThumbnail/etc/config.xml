@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MW_ConfigurableOptionThumbnail>
+            <version>1.0.0</version>
+        </MW_ConfigurableOptionThumbnail>
+    </modules>
+    <frontend>        
+        <layout>
+            <updates>
+                <configurableoptionthumbnail>
+                    <file>mw_configurableoptionthumbnail.xml</file>
+                </configurableoptionthumbnail>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <configurableoptionthumbnail>
+                <use>admin</use>
+                <args>
+                    <module>MW_ConfigurableOptionThumbnail</module>
+                    <frontName>configurableoptionthumbnail</frontName>
+                </args>
+            </configurableoptionthumbnail>
+        </routers>
+    </admin>
+    <adminhtml>
+         <menu>
+            <mwall module="configurableoptionthumbnail" translate="title">
+                <title>Magento Whiz</title>
+                <sort_order>75</sort_order>
+                <children>
+                    <configurableoptionthumbnail module="configurableoptionthumbnail" translate="title">
+                        <title>Configurable Option Thumbnail</title>
+                        <sort_order>30</sort_order>                        
+                        <children>
+                            <configuration module="configurableoptionthumbnail" translate="title">
+                                <title>Configuration</title>
+                                <sort_order>10</sort_order>
+                                <action>adminhtml/system_config/edit/section/configurableoptionthumbnail_options/</action>
+                            </configuration>
+                        </children>
+                    </configurableoptionthumbnail>
+                </children>
+            </mwall>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <MW_ConfigurableOptionThumbnail>
+                            <title>ConfigurableOptionThumbnail Module</title>
+                            <sort_order>10</sort_order>
+                        </MW_ConfigurableOptionThumbnail>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>                                        
+                                        <configurableoptionthumbnail_options>
+                                            <title>Whiz Module Section</title>
+                                        </configurableoptionthumbnail_options>                                                   
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>					
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <configurableoptionthumbnail>
+                    <file>configurableoptionthumbnail.xml</file>
+                </configurableoptionthumbnail>
+            </updates>
+        </layout>
+    </adminhtml>   
+    <global>        
+        <blocks>        	
+            <configurableoptionthumbnail>
+                <class>MW_ConfigurableOptionThumbnail_Block</class>
+            </configurableoptionthumbnail>
+        </blocks>
+        <helpers>
+            <configurableoptionthumbnail>
+                <class>MW_ConfigurableOptionThumbnail_Helper</class>
+            </configurableoptionthumbnail>
+        </helpers>
+    </global>    
+</config>

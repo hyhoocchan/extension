@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<config>
+     <tabs>
+        <mwall translate="label" module="advancedinvoiceprinting">
+            <label>Magento Whiz</label>
+            <sort_order>250</sort_order>
+        </mwall>
+    </tabs>
+    <sections>
+        <advancedinvoiceprinting_options translate="label" module="advancedinvoiceprinting">
+            <label>Advanced Invoice Printing</label>
+            <tab>mwall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>      
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>   
+                    <fields>       
+                        <enable translate="label">
+                            <label>Enable</label>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable>
+                        <logo translate="label">
+                            <label>Logo for PDF</label>
+                            <comment><![CDATA[<strong>Note</strong>:This field will override the Invoice and Packing Slip Design >> Logo for PDF Print Out]]>
+                            </comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image_pdf</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">sales/advancedinvoiceprinting/logo</upload_dir>
+                            <base_url type="media" scope_info="1">sales/advancedinvoiceprinting/logo</base_url>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo>
+                        <logo_size translate="label">
+                            <label>Logo Size(%)</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[<strong>Note</strong>:In percentage]]></comment>
+                            <validate>validate-greater-than-zero validate-one-required</validate>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo_size>
+                        <headertext>
+                            <label>Header Text</label>
+                            <frontend_type>textarea</frontend_type>
+                            <comment></comment>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </headertext>
+                        <footertext>
+                            <label>Footer Text</label>
+                            <frontend_type>textarea</frontend_type>
+                            <comment></comment>
+                            <sort_order>26</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footertext>
+                        <images translate="label">
+                            <label>Watermark Image Print-outs</label>
+                            <comment></comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image_pdf</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">sales/advancedinvoiceprinting/waterfallimage</upload_dir>
+                            <base_url type="media" scope_info="1">sales/advancedinvoiceprinting/waterfallimage</base_url>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </images>
+                        <images_size translate="label">
+                            <label>Watermark Image Size(%)</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[<strong>Note</strong>:In percentage]]></comment>
+                            <validate>validate-greater-than-zero validate-one-required</validate>
+                            <sort_order>101</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </images_size>
+                        <opacity translate="label">
+                            <label>Opacity</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-not-negative-number</validate>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </opacity>
+                        <rotate_right translate="label">
+                            <label>Rotate Right</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-not-negative-number</validate>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rotate_right>                        
+                        <offset_x>
+                            <label>Offset X</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Leave blank for draw in center</comment>
+                            <sort_order>105</sort_order>
+                            <validate>validate-number</validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </offset_x>
+                        <offset_y>
+                            <label>Offset Y</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Leave blank for draw in center</comment>
+                            <validate>validate-number</validate>
+                            <sort_order>106</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </offset_y>
+                    </fields>              
+                </general>
+                <pages>
+                    <label>Pages Number On Layout</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>   
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable Page Number</label>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable>
+                        <alignment translate="label">
+                            <label>Page Number Alignment</label>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>advancedinvoiceprinting/admin_pagenumberconfig_alignment</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </alignment>
+                        <position translate="label">
+                            <label>Page Number Position</label>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>advancedinvoiceprinting/admin_pagenumberconfig_position</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </position>
+                        <format translate="label">
+                            <label>Page Number Format</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[<strong>Ex: </strong>Page 1 or P1]]></comment>                            
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </format>
+                    </fields>
+                </pages>
+            </groups>
+        </advancedinvoiceprinting_options>
+    </sections>     
+</config>

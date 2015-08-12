@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <mwall translate="label" module="configurableoptionthumbnail">
+            <label>Magento Whiz</label>
+            <sort_order>250</sort_order>
+        </mwall>
+    </tabs>
+    <sections>
+        <configurableoptionthumbnail_options translate="label" module="configurableoptionthumbnail">
+            <label>Configurable Option Thumbnail</label>
+            <tab>mwall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>      
+            <groups>
+                <genaral translate="label">
+                    <label>Genaral</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>   
+                    <fields>
+                        <attribute_show_image translate="label">
+                            <label>Attribute Show Image</label>
+                            <comment>Line-separated.</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </attribute_show_image>
+                    </fields>              
+                </genaral>
+            </groups>
+        </configurableoptionthumbnail_options>
+    </sections>     
+</config>
